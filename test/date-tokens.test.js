@@ -32,6 +32,16 @@ describe('date-tokens', function(){
 
             assert(tokens['year'](new Date(2006, 3, 4)) == 2006);
         });
+
+        it('should return the tokens object of functions with tokens named with the prefix', function() {
+            var tokens = dt(new Date(2001, 3, 4), 'date-');
+            assert(tokens['date-year'](new Date(2006, 3, 4)) == 2006); 
+        });
+
+        it('should return the tokens object of functions with tokens named with the prefix and current time', function() {
+            var tokens = dt('date-');
+            assert(tokens['date-mins']() == (new Date()).getMinutes());
+        });
     });
 
     describe('+ eval', function() {
@@ -75,6 +85,16 @@ describe('date-tokens', function(){
 
             assert(tokens['iso'] === '2001-04-07T18:05:33.345Z')
 
+        });
+
+        it('should return the tokens object of strings with tokens named with the prefix', function() {
+            var tokens = dt.eval(new Date(2001, 3, 4), 'date-');
+            assert(tokens['date-year'] === '2001'); 
+        });
+
+        it('should return the tokens object of strings with tokens named with the prefix and return current', function() {
+            var tokens = dt.eval('date-');
+            assert(tokens['date-year'] == (new Date()).getFullYear()); 
         });
     })
 });

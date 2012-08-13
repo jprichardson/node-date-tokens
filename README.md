@@ -24,7 +24,7 @@ Example
 
 Two functions: `dt` and `dt.eval`.
 
-### dt([date])
+### dt([date], [prefix])
 
 Returns an object with tokens each with a function value.
 
@@ -50,7 +50,21 @@ var tokens = dt(new Date(2001, 3, 4)); //returns an object with function tokens.
 tokens['year'](new Date(2006, 5, 12)); //returns '2006'
 ```
 
-### dt.eval([date])
+```javascript
+var dt = require('date-tokens');
+
+var tokens = dt('date-'); //returns an object with function tokens.
+tokens['date-year'](); //return current year
+```
+
+```javascript
+var dt = require('date-tokens');
+
+var tokens = dt(new Date(2005, 1, 1), 'date-'); //returns an object with function tokens.
+tokens['date-year'](); //'2005'
+```
+
+### dt.eval([date], [prefix])
 
 Return an object with tokens each with a string value
 
@@ -66,6 +80,30 @@ var dt = require('date-tokens');
 
 var tokens = dt.eval(new Date(2001, 3, 4)); //returns an object with function tokens.
 tokens['year']; //returns '2001'
+```
+
+```javascript
+var dt = require('date-tokens');
+
+var tokens = dt.eval('date-'); 
+tokens['date-year']; //return current year
+```
+
+
+Use with Mustache.js, Hogan.js, or Handlebars.js
+------------------------------------------------
+
+The main purpose of `date-tokens` is to use in conjunction with a templating language.
+
+```javascript
+var hogan = require('hogan.js')
+  , dt = require('date-tokens');
+
+var template = "Hello, the current year is {{date-year}}."
+
+var output = hogan.compile(template).render(dt.eval('-date'));
+
+console.log(output); //Hello, the current year is 2012.
 ```
 
 

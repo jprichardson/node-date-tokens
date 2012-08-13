@@ -1,6 +1,6 @@
 {
     "name" : "date-tokens", 
-    "version" : "0.0.1",
+    "version" : "0.0.2",
     "description" :"",
     "homepage" : [
        ""
@@ -9,7 +9,7 @@
         "type" : "git", 
         "url" : "git@github.com:jprichardson/node-date-tokens.git"
     },
-    "keywords" : [],
+    "keywords" : ["mustache", "handlebars", "mustache.js", "handlebars.js", "hogan", "hogan.js", "date", "time", "templates", "tokens"],
     "author" : "JP <jprichardson@gmail.com>",
     "licenses" : [ {
         "type" : "MIT",
