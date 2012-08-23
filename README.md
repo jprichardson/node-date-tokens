@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jprichardson/node-date-tokens.png)](http://travis-ci.org/jprichardson/node-date-tokens)
 Node.js - date-tokens
 =====================
 
