@@ -83,7 +83,7 @@ describe('date-tokens', function(){
             assert(tokens['ymd-hms'] === '2001-04-07-13-05-33');
             assert(tokens['ymd_hms'] === '2001-04-07_13-05-33');
 
-            assert(tokens['iso'] === '2001-04-07T18:05:33.345Z')
+            assert(tokens['iso'] === '2001-04-07T07:35:33.345Z')
 
         });
 
